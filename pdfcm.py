@@ -2,11 +2,9 @@ import fitz  # PyMuPDF
 import pandas as pd
 import os
 
-# Ruta de la carpeta donde están los PDFs
-carpeta_pdf = 'C:/Users/IPS OBRERO/Desktop/Lector pdf/PDF'  # Cambia esto por la ruta de tu carpeta
+carpeta_pdf = 'C:/Users/IPS OBRERO/Desktop/Lector pdf/PDF'  
 archivos_pdf = [f for f in os.listdir(carpeta_pdf) if f.endswith('.pdf')]
 
-# Crear una lista para almacenar todos los datos
 todos_datos = []
 
 # Procesar cada archivo PDF
@@ -26,12 +24,24 @@ for archivo in archivos_pdf:
     data['Texto Completo'] = texto_completo
     todos_datos.append(data)
 
+    #texto_completo2 = texto_completo.split('\n').split('\n')
+    #print(texto_completo2)
+
     pdf.close()  # Cierra el archivo PDF
+
+#print(todos_datos)
+
+
+
+
+
+
 
 # Convertir la lista de diccionarios a un DataFrame
 df = pd.DataFrame(todos_datos)
 
+#print(todos_datos)
 # Guardar el DataFrame en un archivo Excel
-df.to_csv('datos_extraidos_completos.txt', index=False)
+#df.to_csv('datos_extraidos_completos.txt', index=False)
 
-print("Datos guardados en 'datos_extraidos_completos.txt'")
+#print("Datos guardados en 'datos_extraidos_completos.txt'")
